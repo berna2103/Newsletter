@@ -65,7 +65,9 @@ app.post("/failure", function(req, res){
     res.redirect("/");
 } );
 
-app.listen(port || portHeroku);
+app.listen(port || portHeroku, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 //unique ID mailChimp: e5d189102e
 //MailChimp apiKey: b4f90e2a3b8d9d4150a3efb5bcd9f4bc-us7
