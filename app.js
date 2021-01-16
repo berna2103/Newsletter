@@ -65,7 +65,7 @@ app.post("/failure", function(req, res){
     res.redirect("/");
 } );
 
-app.listen(port || portHeroku, function(){
+app.listen(portHeroku || port, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
