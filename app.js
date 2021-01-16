@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const port = 3000;
+const port = process.env.PORT || 3000;
 const portHeroku = process.env.PORT; // heroku port for live site
 const app = express();
 const https = require("https");
@@ -65,7 +65,7 @@ app.post("/failure", function(req, res){
     res.redirect("/");
 } );
 
-app.listen(portHeroku || port, function(){
+app.listen(portHeroku, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
