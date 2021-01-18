@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 const portHeroku = process.env.PORT; // heroku port for live site
 const app = express();
@@ -39,10 +40,10 @@ app.post("/", function(req, res){
 
 
     var jsonData = JSON.stringify(data);
-    const url = "https://us7.api.mailchimp.com/3.0/lists/e5d189102e";
+    const url = "https://us7.api.mailchimp.com/3.0/lists/" + process.env.MAIL_CHIMP_ID;
     const options ={
         method: "POST",
-        auth: "bernardo:b4f90e2a3b8d9d4150a3efb5bcd9f4bc-us7"
+        auth: "bernardo:" + process.env.API_KEY
     }
 
     const request = https.request(url, options, function(response){
@@ -70,4 +71,4 @@ app.listen(process.env.PORT, function(){
 });
 
 //unique ID mailChimp: e5d189102e
-//MailChimp apiKey: b4f90e2a3b8d9d4150a3efb5bcd9f4bc-us7
+//MailChimp apiKey: 
