@@ -70,5 +70,3 @@ app.listen(process.env.PORT, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
-//unique ID mailChimp: e5d189102e
-//MailChimp apiKey: 
